@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive card details form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+</head>
+<body>
+  <main>
+    <div class="container-bx">
+      <div class="card-bx">
+           <div class="card front">
+            <img src="images/card-logo.svg" alt="" srcset="">
+            <div class="content">
+               <p id="card-el">1234 5678 9110 1345</p>
+               <div class="flex">
+                <h1 id="name-el">jimmy lee</h1>
+                <h1 id="date-el">mm/yy</h1>
+               </div>
+            </div>
+           </div>
+           <div class="card back">
+            <div class="cvc" id="cvc-el">000</div>
+           </div>
+      </div>
+      <div class="form-bx">
+        <div class="form-input">
+          <p>card holder name</p>
+          <input type="text"  id="name" placeholder="eg. Adejimi Peter">
+        </div>
+        <div class="form-input">
+          <p>card number</p>
+          <input type="number"  id="number" placeholder="eg. 1234 5678 9112 8097">
+        </div>
+        <div class="form-input">
+          <input type="text" name="" id="month" placeholder="mm" >
+          <input type="text" name="" id="year" placeholder="yy">
+          <input type="text" name="" id="cvc" placeholder="cvc">
+        </div>
+        <button id="btn-el">Confirm</button>
+      </div>
+   </div>
+  </main>
+</body>
+<script>
+    let name = document.getElementById("name")
+    let number = document.getElementById("number")
+    let month = document .getElementById("month")
+    let year = document .getElementById("year")
+    let cvc = document .getElementById("cvc")
+
+
+    let cardEl = document.getElementById("card-el")
+    let nameEl = document.getElementById("name-el")
+    let dateEl = document.getElementById("date-el")
+    let btnEl = document.getElementById("btn-el")
+    let cvcEl = document.getElementById("cvc-el")
+
+    let sucess = document.querySelector(".form-bx")
+
+
+    btnEl.addEventListener('click', ()=>{
+       nameEl.innerHTML = name.value
+       dateEl.innerHTML = `exp: ${month.value}  / ${year.value}`
+       cardEl.innerHTML = number.value
+       cvcEl.innerHTML = cvc.value
+       sucess.innerHTML = `<div class="success">
+               <img src="images/icon-complete.svg">
+               <h1>Thank you </h1>
+               <p>We've added your card details</p>
+               <button id="btn-el">Continue</button>
+        </div>`
+    })
+</script>
+</html>
